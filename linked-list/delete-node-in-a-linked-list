@@ -1,0 +1,33 @@
+class Solution {
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
+
+
+
+// explaination 
+
+Example 1: Deleting a Middle Node
+Suppose the list is 4 -> 5 -> 1 -> 9 and you are given node = 5 (the second node):
+
+Initial state: 4 -> [5] -> 1 -> 9 (given node has value 5, node.next is 1, node.next.next is 9).
+
+After node.val = node.next.val;: 4 -> [1] -> 1 -> 9 (node 5's value becomes 1).
+
+After node.next = node.next.next;: 4 -> [1] -> 9 (the second 1 is bypassed; the list now has values 4 -> 1 -> 9).
+
+
+
+
+
+
+Example 2: Deleting Another Middle Node
+Suppose the list is 10 -> 20 -> 30 -> 40 and you are given node = 20 (the second node):
+
+Initial state: 10 -> [20] -> 30 -> 40 (given node has value 20, node.next is 30, node.next.next is 40).
+
+After node.val = node.next.val;: 10 -> [30] -> 30 -> 40 (node 20's value becomes 30).
+
+After node.next = node.next.next;: 10 -> [30] -> 40 (the second 30 is bypassed; the list now has values 10 -> 30 -> 40).
